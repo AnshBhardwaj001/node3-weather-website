@@ -8,6 +8,8 @@ import { weather } from './utils/forecast.js'
 
 const app = express()  //Creates an express server
 
+const port = process.env.PORT || 3000 // port value(3000) will be used when running the app locally and the value the heroku(host) will be provide through environment will be used for the actual hosting.
+
 //Define path for engine
 const publicDirectoryPath = path.join(process.cwd(),'/public')
 const viewsPath = path.join(process.cwd(),'/templates/views')
@@ -76,6 +78,6 @@ app.get('*' , (req,res) => {
     })
 })
 
-app.listen(3000,() => {
-    console.log('Server is up and running at port 3000.')
+app.listen(port,() => {
+    console.log('Server is up and running at port '+port)
 })
